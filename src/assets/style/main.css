@@ -1,0 +1,17 @@
+@import url("./tailwind.css");
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  --corner-padding: 20px;
+  color: theme("colors.dark.100");
+  font-variant-numeric: lining-nums;
+  scrollbar-gutter: stable;
+  background: theme("colors.light.100");
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}

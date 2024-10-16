@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .corner {
+    padding-left: var(--corner-padding);
+    padding-right: var(--corner-padding);
+  }
+
+  .corner-left {
+    padding-right: 0;
+    padding-left: var(--corner-padding);
+  }
+
+  .corner-right {
+    padding-right: var(--corner-padding);
+    padding-left: 0;
+  }
+
+  .corner-none {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
