@@ -1,5 +1,5 @@
 # DEMO
-[https://github.com/plonke/engilab](https://engilab.ru/)
+[https://engilab.ru](https://engilab.ru)
 
 
 # Nuxt 3 Minimal Starter
