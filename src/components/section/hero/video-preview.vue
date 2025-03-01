@@ -47,7 +47,8 @@ watch(escape, escape => {
             </defs>
         </svg>
 
-        <video ref="bgVideo" class="size-full object-cover object-center rounded-[20px]" autoplay muted loop>
+        <video ref="bgVideo" class="size-full object-cover object-center rounded-[20px]" autoplay playsinline muted
+            loop>
             <source :src="videoMp4" type="video/mp4">
             <source :src="videoWebm" type="video/webm">
         </video>
