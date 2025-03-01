@@ -1,94 +1,59 @@
 <template>
-  <div
-    ref="nicheEl"
-    class="group overflow-hidden bg-light-100 transition-colors hover:!bg-light-200"
-    :class="{
-      'rounded-[4px]': !isExpanded,
-      'group/expanded !bg-light-200': isExpanded,
-      '': isOtherExpandedOrCollapsing,
-    }"
-  >
+  <div ref="nicheEl" class="group overflow-hidden bg-light-100 transition-colors hover:!bg-light-200" :class="{
+    'rounded-[4px]': !isExpanded,
+    'group/expanded !bg-light-200': isExpanded,
+    '': isOtherExpandedOrCollapsing,
+  }">
     <SharedHalf class="z-50">
       <template #right>
         <div ref="contentEl">
-          <div
-            ref="activatorEl"
+          <div ref="activatorEl"
             class="corner lg:corner-right group/toggle group z-20 flex items-center py-[40px] hover:cursor-pointer active:bg-dark-8 lg:py-[50px] lg:active:bg-transparent"
-            :class="{ 'is-hidden': isOtherExpandedOrCollapsing }"
-            @click="toggleExpansion"
-          >
+            :class="{ 'is-hidden': isOtherExpandedOrCollapsing }" @click="toggleExpansion">
             <div class="grow">
               <h3
-                class="relative inline-flex overflow-hidden font-mono text-subtitle-21 transition-all duration-[0.3s] group-hover:translate-x-[0px] lg:text-subtitle-30"
-              >
+                class="relative inline-flex overflow-hidden font-mono text-subtitle-21 transition-all duration-[0.3s] group-hover:translate-x-[0px] lg:text-subtitle-30">
                 <div class="inline-flex">
                   {{ title }}
                 </div>
 
                 <div
-                  class="absolute bottom-0 hidden h-[2px] w-full bg-dark-100 transition-all duration-[800ms] group-hover/toggle:w-full lg:block lg:w-0"
-                ></div>
+                  class="absolute bottom-0 hidden h-[2px] w-full bg-dark-100 transition-all duration-[800ms] group-hover/toggle:w-full lg:block lg:w-0">
+                </div>
               </h3>
             </div>
 
             <div class="overflow-hidden">
               <SharedIconPlus
                 class="transition-all group-hover:rotate-90 group-[.is-hidden]:translate-y-full group-[.is-hidden]:opacity-0"
-                :class="{ '!rotate-[135deg]': isExpanded }"
-              />
+                :class="{ '!rotate-[135deg]': isExpanded }" />
             </div>
           </div>
 
-          <div
-            v-if="isExpanded"
-            ref="expandedContentEl"
-            class="flex flex-col gap-[40px] overflow-hidden lg:gap-[50px]"
-          >
-            <img
-              :src="image"
-              alt=""
-              class="corner h-[300px] overflow-hidden rounded-[4px] lg:hidden"
-            />
+          <div v-if="isExpanded" ref="expandedContentEl" class="flex flex-col gap-[40px] overflow-hidden lg:gap-[50px]">
+            <div class="corner lg:hidden">
+              <img :src="image" alt="" class="h-[300px] object-cover overflow-hidden rounded-[4px] w-full" />
+            </div>
 
-            <div class="corner lg:corner-right flex flex-col gap-[20px]">
-              <SharedLongText
-                v-for="(benefit, index) in benefits"
-                class="inline-flex w-fit gap-[10px] font-mono text-subtitle-16"
-              >
+            <div class="corner lg:corner-right flex flex-col gap-[10px]">
+              <SharedLongText v-for="(benefit, index) in benefits"
+                class="inline-flex w-fit gap-[10px] font-mono text-body-16">
                 <div>{{ index + 1 }}.</div>
                 <div>{{ benefit }}</div>
               </SharedLongText>
-            </div>
 
-            <div
-              v-if="bonus"
-              class="corner lg:corner-right flex items-center gap-[20px]"
-            >
-              <img
-                :src="bonus.image"
-                alt=""
-                class="size-[60px] rounded-[4px]"
-              />
-              <div class="font-mono">
-                <div class="text-subtitle-16 text-dark-100 opacity-50">
-                  Бонус
-                </div>
-                <SharedLongText class="mt-[5px] text-subtitle-16">
-                  {{ bonus.title }}
+              <div v-if="bonus" class="flex items-start gap-[20px]">
+                <div class="text-title-16 text-green-600 font-mono">+ </div>
+                <SharedLongText class=" text-body-16 font-mono">
+                  <span class="text-green-600 text-title-16">Бонус:</span> {{ bonus.title }}
                 </SharedLongText>
               </div>
             </div>
 
-            <div class="corner lg:corner-right">
-              <SharedButton
-                class="w-full"
-                theme="light"
-                @click="scrollToApplication"
-                >Оставить заявку</SharedButton
-              >
+            <div class="corner lg:corner-right flex items-center gap-[20px] mb-[50px]">
+              <SharedButton class="w-full md:w-auto" theme="light" @click="scrollToApplication">Оставить заявку
+              </SharedButton>
             </div>
-
-            <div></div>
           </div>
         </div>
       </template>

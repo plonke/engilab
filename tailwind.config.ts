@@ -12,7 +12,36 @@ export default {
   ],
 
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        transparent: "transparent",
+  
+        light: {
+          100: "#F7F7F7",
+          200: "#FFFFFF",
+        },
+  
+        dark: {
+          100: "#000000",
+          90: "#1A1A1A",
+          20: "#CCCCCC",
+          12: "#E0E0E0",
+          8: "#EBEBEB",
+          4: "#F5F5F5",
+        },
+  
+        green: {
+          8: "#E6F2E9",
+          100: "#28A756",
+        },
+  
+        orange: {
+          100: "#FCA95D",
+        },
+  
+        current: "currentColor",
+      },
+    },
 
     transitionTimingFunction: {
       DEFAULT: "cubic-bezier(0.22, 1, 0.36, 1)",
@@ -158,35 +187,6 @@ export default {
           fontWeight: "600",
         },
       ],
-    },
-
-    colors: {
-      transparent: "transparent",
-
-      light: {
-        100: "#F7F7F7",
-        200: "#FFFFFF",
-      },
-
-      dark: {
-        100: "#000000",
-        90: "#1A1A1A",
-        20: "#CCCCCC",
-        12: "#E0E0E0",
-        8: "#EBEBEB",
-        4: "#F5F5F5",
-      },
-
-      green: {
-        8: "#E6F2E9",
-        100: "#28A756",
-      },
-
-      orange: {
-        100: "#FCA95D",
-      },
-
-      current: "currentColor",
     },
 
     backgroundImage: {

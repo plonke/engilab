@@ -1,82 +1,87 @@
 <template>
-  <SharedSectionTemplate>
-    <SharedPlate class="flex flex-col gap-[40px] pb-[40px] lg:gap-[40px]">
-      <SharedHalf>
-        <template #left>
-          <SharedSectionHeader
-            id="hero-header"
-            align="left"
-            title-tag="h1"
-            :title="['Производство ', 'косметики под вашим брендом']"
-            split-title
-          />
-        </template>
+  <div
+    class="relative pt-[20px] mb-[40px] lg:mb-0 pb-[20px] lg:min-h-[calc(100vh-80px)] bg-light-100 lg:bg-transparent flex flex-col">
+    <SharedHalf class="grow gap-[20px] lg:gap-0">
+      <template #left>
+        <VideoPreview @init="playVideo = $event" />
+      </template>
 
-        <template #right>
-          <SharedPlate
-            id="hero-text"
-            fill-left
-            class="corner lg:corner-right mt-[-20px] flex flex-col gap-[20px] pb-[20px] font-mono text-body-14 md:text-body-16 lg:mt-[0px] lg:pb-[20px] lg:pt-[30px]"
-          >
-            <SharedLongText
-              >Мы — производственная площадка в г. Краснодар. Зарекомендовали
-              себя на рынке как поставщик базовой косметики с доказанной
-              эффективностью
+      <template #right>
+        <div id="hero-text" fill-left
+          class="corner h-full flex flex-col gap-[20px] lg:gap-[40px] font-mono text-body-14 md:text-body-16 ">
+
+          <h1 class="text-title-30 lg:text-title-56 font-sans" id="hero-header">
+            <span v-html="spanText('Производство ')"></span> <br />
+            <span v-html="spanText('косметики ')"></span> <br />
+            <span v-html="spanText('под вашим брендом')"></span>
+          </h1>
+
+          <div class="flex flex-col gap-[10px] lg:gap-[20px]">
+            <SharedLongText>Мы — производственная площадка в городе Краснодар. Зарекомендовали
+              себя как поставщик базовой косметики с доказанной
+              эффективностью.
             </SharedLongText>
 
             <div>
               <div>Наши результаты на рынке:</div>
               <div class="flex w-full items-center gap-[20px]">
-                <a
-                  href="#"
-                  class="cursor-pointer underline underline-offset-[1px] transition-all hover:underline-offset-[4px]"
-                  >Wildberries</a
-                >
+                <a href="#"
+                  class="cursor-pointer underline underline-offset-[2px] transition-all hover:underline-offset-[1px]">Wildberries</a>
                 <div class="mt-1 h-px grow bg-dark-12" />
                 <div class="font-medium">400К продаж</div>
               </div>
               <div class="flex w-full items-center gap-[20px]">
-                <a
-                  href="#"
-                  class="cursor-pointer underline underline-offset-[1px] transition-all hover:underline-offset-[4px]"
-                  >Ozon</a
-                >
+                <a href="#"
+                  class="cursor-pointer underline underline-offset-[2px] transition-all hover:underline-offset-[1px]">Ozon</a>
                 <div class="mt-1 h-px grow bg-dark-12" />
                 <div class="font-medium">400К продаж</div>
               </div>
             </div>
 
             <SharedLongText>
-              Мы занимаемся полным циклом производства:  <br />
-              1. разработка <br />
-              2. создание и изготовление <br />
-              3. тестирование на фокус-группе <br />
-              4. упаковка <br />
-              5. сертификация по стандартам РФ
+              Занимаемся полным циклом производства:  <br />
+              1. Разработка <br />
+              2. Создание и изготовление <br />
+              3. Тестирование на фокус-группе <br />
+              4. Упаковка <br />
+              5. Сертификация по стандартам РФ
             </SharedLongText>
-          </SharedPlate>
-        </template>
-      </SharedHalf>
+          </div>
 
-      <div id="hero-button" class="corner flex justify-center overflow-hidden">
+
+          <div class="mt-auto">
+            <SharedButton class="w-full" @click="scrollToApplication">Оставить заявку
+            </SharedButton>
+          </div>
+        </div>
+
+
+      </template>
+    </SharedHalf>
+
+    <!-- <div id="hero-button" class="corner flex justify-center overflow-hidden">
         <SharedButton class="w-full lg:w-auto" @click="scrollToApplication"
           >Оставить заявку</SharedButton
         >
-      </div>
-    </SharedPlate>
-  </SharedSectionTemplate>
+      </div> -->
+  </div>
 </template>
 
 <script setup lang="ts">
 import gsap from "gsap";
+import VideoPreview from "./video-preview.vue";
 
 const emit = defineEmits<{
   (e: "init", cb: () => void): void;
 }>();
 
+const playVideo = ref(() => { });
+
 function showContent() {
+  playVideo.value();
+
   const heroHeader = document.querySelector("#hero-header");
-  const heroButton = document.querySelector("#hero-button");
+  // const heroButton = document.querySelector("#hero-button");
   const heroText = document.querySelector("#hero-text");
 
   if (!heroHeader) {
@@ -105,21 +110,21 @@ function showContent() {
     "<",
   );
 
-  tl.to(
-    heroButton,
-    {
-      ease: "back.out",
-      duration: 0.5,
-      y: 0,
-      alpha: 1,
-    },
-    "<0.2",
-  );
+  // tl.to(
+  //   heroButton,
+  //   {
+  //     ease: "back.out",
+  //     duration: 0.5,
+  //     y: 0,
+  //     alpha: 1,
+  //   },
+  //   "<0.2",
+  // );
 }
 
 function hideContent() {
   const heroHeader = document.querySelector("#hero-header");
-  const heroButton = document.querySelector("#hero-button");
+  // const heroButton = document.querySelector("#hero-button");
   const heroText = document.querySelector("#hero-text");
 
   if (!heroHeader) {
@@ -132,10 +137,10 @@ function hideContent() {
     y: -80,
   });
 
-  gsap.set(heroButton, {
-    y: -80,
-    alpha: 0,
-  });
+  // gsap.set(heroButton, {
+  //   y: -80,
+  //   alpha: 0,
+  // });
 
   gsap.set(heroText, {
     y: -40,

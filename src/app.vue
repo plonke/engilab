@@ -3,18 +3,12 @@
 
   <div id="content" class="--mt-[-60px] opacity-0">
     <div class="z-10">
-      <SectionNavigation
-        id="navigation"
-        class="sticky top-0 z-40 -translate-y-full"
-      />
+      <SectionNavigation id="navigation" class="sticky top-0 z-40 -translate-y-full" />
 
       <div class="relative z-10 bg-light-100">
         <div class="absolute left-0 top-0 h-full w-full overflow-hidden">
-          <SharedDivider
-            direction="vertical"
-            :style="{ height: `calc(75vh + ${windowY}px)` }"
-            class="absolute left-1/2 top-0 min-h-screen -translate-x-1/2 transition-all duration-[1000ms]"
-          />
+          <SharedDivider direction="vertical" :style="{ height: `calc(75vh + ${windowY}px)` }"
+            class="absolute left-1/2 top-0 min-h-screen -translate-x-1/2 transition-all duration-[1000ms]" />
         </div>
 
         <SectionHero @init="onHeroInit" />
