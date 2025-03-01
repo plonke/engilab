@@ -12,7 +12,8 @@ const isDialogOpen = ref(false);
 const { escape } = useMagicKeys();
 
 function play() {
-    bgVideo.value.play()
+    bgVideo.value.currentTime = 0;
+    bgVideo.value.play();
 }
 
 onMounted(() => {
@@ -46,7 +47,7 @@ watch(escape, escape => {
             </defs>
         </svg>
 
-        <video ref="bgVideo" class="size-full object-cover object-center rounded-[20px]" muted loop>
+        <video ref="bgVideo" class="size-full object-cover object-center rounded-[20px]" autoplay muted loop>
             <source :src="videoMp4" type="video/mp4">
             <source :src="videoWebm" type="video/webm">
         </video>
