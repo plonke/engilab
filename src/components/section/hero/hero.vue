@@ -25,16 +25,16 @@
             <div>
               <div>Наши результаты на рынке:</div>
               <div class="flex w-full items-center gap-[20px]">
-                <a href="#"
+                <a href="https://www.ozon.ru/brand/eskin-touch-101235821/?all_items=true"
                   class="cursor-pointer underline underline-offset-[2px] transition-all hover:underline-offset-[1px]">Wildberries</a>
                 <div class="mt-1 h-px grow bg-dark-12" />
-                <div class="font-medium">400К продаж</div>
+                <div class="font-medium">870К продаж</div>
               </div>
               <div class="flex w-full items-center gap-[20px]">
-                <a href="#"
+                <a href="https://www.wildberries.ru/seller/61054"
                   class="cursor-pointer underline underline-offset-[2px] transition-all hover:underline-offset-[1px]">Ozon</a>
                 <div class="mt-1 h-px grow bg-dark-12" />
-                <div class="font-medium">400К продаж</div>
+                <div class="font-medium">230К продаж</div>
               </div>
             </div>
 

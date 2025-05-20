@@ -9,16 +9,12 @@
 
       <div class="flex basis-1/2">
         <SectionNavigationLink @click="scrollToApplication">
-          Оставить заявку</SectionNavigationLink
-        >
+          Оставить заявку</SectionNavigationLink>
 
-        <SharedDivider
-          direction="vertical"
-          class="hidden self-stretch md:block"
-        />
+        <SharedDivider direction="vertical" class="hidden self-stretch md:block" />
 
         <!-- TODO: UPDATE LINK -->
-        <SectionNavigationLink
+        <!-- <SectionNavigationLink
           class="hidden lg:flex"
           :link="getTelegramChannelLinkAttrs().href"
         >
@@ -28,11 +24,10 @@
         <SharedDivider
           direction="vertical"
           class="hidden self-stretch lg:block"
-        />
+        /> -->
 
         <SectionNavigationLink class="hidden md:flex" link="tel:8">
-          +&nbsp;7&nbsp;963&nbsp;636&nbsp;03&nbsp;33</SectionNavigationLink
-        >
+          +&nbsp;7&nbsp;963&nbsp;636&nbsp;03&nbsp;33</SectionNavigationLink>
       </div>
     </div>
 

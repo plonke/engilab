@@ -1,17 +1,12 @@
 <template>
   <SharedSectionTemplate>
-    <SharedSectionHeader
-      title-tag="h2"
-      caption="/ 06 /"
-      :title="['Основатели', '']"
-      align="center"
-    />
+    <SharedSectionHeader title-tag="h2" caption="/ 06 /" :title="['Основатели', '']" align="center" />
 
     <SectionFoundersAbout />
 
-    <SharedDivider direction="horizontal" />
+    <!-- <SharedDivider direction="horizontal" />
 
-    <SectionFoundersProjects />
+    <SectionFoundersProjects /> -->
   </SharedSectionTemplate>
 </template>
 
