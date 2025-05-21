@@ -28,7 +28,7 @@ watch(escape, escape => {
 </script>
 
 <template>
-    <div class="flex relative size-full px-5 cursor-pointer group" @click="isDialogOpen = true">
+    <div class="flex relative size-full px-5 cursor-pointer group " @click="isDialogOpen = true">
         <svg class="w-[32px] lg:w-[40px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:opacity-90 group-hover:scale-125 transition-all"
             viewBox="0 0 41 46" fill="none" xmlns="http://www.w3.org/2000/svg">
             <foreignObject x="-27.5" y="-27.9316" width="96.3069" height="101.863">
@@ -47,8 +47,8 @@ watch(escape, escape => {
             </defs>
         </svg>
 
-        <video ref="bgVideo" class="size-full object-cover object-center rounded-[20px]" autoplay playsinline muted
-            loop>
+        <video ref="bgVideo" class="size-full object-cover object-center rounded-[20px] bg-slate-200" autoplay
+            playsinline muted loop>
             <source :src="videoMp4" type="video/mp4">
             <source :src="videoWebm" type="video/webm">
         </video>
